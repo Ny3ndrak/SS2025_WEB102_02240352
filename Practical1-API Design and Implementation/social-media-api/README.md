@@ -1,40 +1,91 @@
-## Practical 1: API Design and Implementation
 
-# Overview
-Designed and implemented a RESTful API for a social media platform similar to Instagram, handling users, posts, comments, likes, and followers. The API follows REST principles, supports pagination, error handling, and content negotiation.
+```markdown
+# Social Media RESTful API
 
-# Objectives
+## Features
+- **User Management**: CRUD operations for user profiles
+- **Post System**: Create, read, update, and delete posts
+- **Social Features**: Comments, likes, and followers
+- **Content Negotiation**: Supports JSON and XML responses
+- **Pagination**: Efficient data retrieval
+- **API Documentation**: Interactive docs page
 
--Design RESTful API endpoints with meaningful URIs.
--Implement CRUD operations for key resources.
--Handle errors gracefully.
--Add pagination for large datasets.
--Support content negotiation (JSON/XML).
--Document the API with an HTML page.
--Implementation Steps
+## Installation
 
-1. Project Setup
--Initialized a Node.js project with express, morgan, cors, and helmet.
--Structured folders for controllers, routes, middleware, and utilities.
--Configured environment variables.
+```bash
+# Clone repository
+git clone https://github.com/your-repo/social-media-api.git
+cd social-media-api
 
-2. API Design
-Endpoints for users, posts, comments, likes, and followers.
- Example:
--GET /users - List users
--POST /users - Create a user
--PUT /users/{id} - Update user
+# Install dependencies
+npm install
 
-3. Development
--Implemented controllers for CRUD operations.
--Defined routes to map HTTP methods.
--Added middleware for error handling, logging, and content negotiation.
--Used mock data instead of a real database.
+# Configure environment
+cp .env.example .env
 
-4. Additional Features
--Pagination: Query parameters (page, limit).
--Error Handling: Custom error responses.
--Content Negotiation: Supports JSON and XML.
+# Start development server
+npm run dev
+```
 
-5. Documentation
-Created an HTML page (public/docs.html) with endpoint descriptions and examples.
+## API Endpoints
+
+### Users
+| Method | Endpoint         | Description                 |
+|--------|------------------|-----------------------------|
+| GET    | /api/users       | List all users (paginated)  |
+| POST   | /api/users       | Create new user             |
+| GET    | /api/users/:id   | Get specific user           |
+| PUT    | /api/users/:id   | Update user                 |
+| DELETE | /api/users/:id   | Delete user                 |
+
+### Posts
+| Method | Endpoint         | Description                 |
+|--------|------------------|-----------------------------|
+| GET    | /api/posts       | List all posts              |
+| POST   | /api/posts       | Create new post             |
+| GET    | /api/posts/:id   | Get specific post           |
+| PUT    | /api/posts/:id   | Update post                 |
+| DELETE | /api/posts/:id   | Delete post                 |
+
+![Endpoint Examples](./screenshots/endpoint-examples.png)
+
+## Request/Response Examples
+
+**Create User:**
+```bash
+curl -X POST http://localhost:3000/api/users \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "new_user",
+    "email": "user@example.com",
+    "password": "securepassword"
+  }'
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "id": "4",
+    "username": "new_user",
+    "email": "user@example.com",
+    "created_at": "2023-05-15"
+  }
+}
+```
+
+## Testing
+```bash
+# Run automated tests
+npm test
+
+# Test with different content types
+curl -H "Accept: application/xml" http://localhost:3000/api/users
+```
+
+## Documentation
+Access interactive docs at: `http://localhost:3000/api-docs`
+
+---
+
