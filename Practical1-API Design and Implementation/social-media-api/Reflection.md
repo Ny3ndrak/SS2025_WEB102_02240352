@@ -1,7 +1,5 @@
-### Reflection.md
 
-```markdown
-# RESTful API Implementation Reflection
+# Practical 1: RESTful API Implementation Reflection
 
 ## Documentation
 
@@ -83,6 +81,5 @@ class ErrorResponse extends Error {
    - Pipeline architecture
 
 
-```
 
 ---

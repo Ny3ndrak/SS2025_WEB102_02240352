@@ -47,7 +47,6 @@ npm run dev
 | PUT    | /api/posts/:id   | Update post                 |
 | DELETE | /api/posts/:id   | Delete post                 |
 
-![Endpoint Examples](./screenshots/endpoint-examples.png)
 
 ## Request/Response Examples
 
@@ -84,8 +83,6 @@ npm test
 curl -H "Accept: application/xml" http://localhost:3000/api/users
 ```
 
-## Documentation
-Access interactive docs at: `http://localhost:3000/api-docs`
 
 ---
 
