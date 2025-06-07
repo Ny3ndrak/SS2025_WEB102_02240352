@@ -1,6 +1,5 @@
 
-```markdown
-# Social Media RESTful API
+# Practical 1: Social Media RESTful API
 
 ## Features
 - **User Management**: CRUD operations for user profiles
